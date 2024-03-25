@@ -69,11 +69,11 @@ public class UsuarioDao {
         return true;
     }
 
-    public Boolean atualizarUsuario(Usuario usuario) {
+    public Boolean atualizarUsuario(Usuario usuario, String senha) {
         String sql = "update usuarios set senha = ? where email = ?";
         try{
             PreparedStatement stmt = this.connection.prepareStatement(sql);
-            stmt.setString(1, usuario.getSenha());
+            stmt.setString(1, senha);
             stmt.setString(2, usuario.getEmail());
             stmt.execute();
             stmt.close();
@@ -103,5 +103,24 @@ public class UsuarioDao {
         }
 
         return usuario;
+    }
+
+    public Boolean verificarUsuario(String email, String senha) {
+        try{
+            PreparedStatement stmt = this.connection.prepareStatement(
+                    "select * from usuarios where email = ? and senha = ?"
+            );
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+        return false;
     }
 }
