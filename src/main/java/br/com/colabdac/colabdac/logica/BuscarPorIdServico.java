@@ -23,7 +23,7 @@ public class BuscarPorIdServico implements Logica{
         req.setAttribute("nome", servico.getNome());
         req.setAttribute("descricao", servico.getDescricao());
         req.setAttribute("valor", servico.getValor());
-        req.setAttribute("idFuncionario", servico.getIdFuncionario());
+        req.setAttribute("id_funcionario", servico.getIdFuncionario());
 
         RequestDispatcher rd = req.getRequestDispatcher("pages/editarServico.jsp");
         rd.forward(req, res);

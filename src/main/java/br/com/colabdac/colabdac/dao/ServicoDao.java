@@ -18,7 +18,7 @@ public class ServicoDao {
     }
 
     public void inserirServico(Servico servico) {
-        String sql = "INSERT INTO servico (nome, descricao, valor, idfuncionario) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO servico (nome, descricao, valor, id_funcionario) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, servico.getNome());
@@ -44,7 +44,7 @@ public class ServicoDao {
                 servico.setNome(rs.getString("nome"));
                 servico.setDescricao(rs.getString("descricao"));
                 servico.setValor(rs.getString("valor"));
-                servico.setIdFuncionario(rs.getLong("idfuncionario"));
+                servico.setIdFuncionario(rs.getLong("id_funcionario"));
                 return servico;
             }
         } catch (SQLException e) {
@@ -67,7 +67,7 @@ public class ServicoDao {
                 servico.setNome(rs.getString("nome"));
                 servico.setDescricao(rs.getString("descricao"));
                 servico.setValor(rs.getString("valor"));
-                servico.setIdFuncionario(rs.getLong("idfuncionario"));
+                servico.setIdFuncionario(rs.getLong("id_funcionario"));
                 servicos.add(servico);
             }
             rs.close();
@@ -80,7 +80,7 @@ public class ServicoDao {
     }
 
     public void alterar(Servico servico) {
-        String sql = "UPDATE servico SET nome=?, descricao=?, valor=?, idfuncionario=? WHERE id=?";
+        String sql = "UPDATE servico SET nome=?, descricao=?, valor=?, id_funcionario=? WHERE id=?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, servico.getNome());

@@ -7,7 +7,7 @@ public class Servico {
     private String nome;
     private String descricao;
     private String valor;
-    private Long idFuncionario; // Chave estrangeira referenciando o funcionário associado a este serviço
+    private Long id_funcionario; // Chave estrangeira referenciando o funcionário associado a este serviço
 
     // Getters e Setters
     public Long getId() {
@@ -43,11 +43,11 @@ public class Servico {
     }
 
     public Long getIdFuncionario() {
-        return idFuncionario;
+        return id_funcionario;
     }
 
-    public void setIdFuncionario(Long idFuncionario) {
-        this.idFuncionario = idFuncionario;
+    public void setIdFuncionario(Long id_funcionario) {
+        this.id_funcionario = id_funcionario;
     }
 }
 

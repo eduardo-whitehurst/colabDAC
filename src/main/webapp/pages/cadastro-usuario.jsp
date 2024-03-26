@@ -64,6 +64,7 @@
     </style>
 </head>
 <body>
+
     <h1>Cadastrar Usuario</h1>
 
     <form action="cadastro" method="post">

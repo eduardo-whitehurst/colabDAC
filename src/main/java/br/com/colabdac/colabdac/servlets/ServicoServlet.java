@@ -1,5 +1,7 @@
 package br.com.colabdac.colabdac.servlets;
 
+import br.com.colabdac.colabdac.dao.FuncionarioDao;
+import br.com.colabdac.colabdac.entities.Funcionario;
 import br.com.colabdac.colabdac.logica.*;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(urlPatterns = {"/cadastraServico", "/listaServico", "/editarServico", "/selectServico", "/selectDelServico"})
 public class ServicoServlet extends HttpServlet {
@@ -32,10 +35,17 @@ public class ServicoServlet extends HttpServlet {
             } else if (action.equals("/selectDelServico")) {
                 remover(request, response);
             } else if (action.equals("/cadastraServico")) {
-                RequestDispatcher dispatcher1 = request.getRequestDispatcher("pages/adiciona-servico.html");
+                FuncionarioDao funcionarioDao = null;
+                try {
+                    funcionarioDao = new FuncionarioDao();
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                List<Funcionario> funcionarios = funcionarioDao.listarTodos();
+                request.setAttribute("funcionarios", funcionarios);
+                RequestDispatcher dispatcher1 = request.getRequestDispatcher("pages/adiciona-servico.jsp");
                 dispatcher1.forward(request, response);
             } else {
-
                 dispatcher.forward(request, response);
             }
         } else {

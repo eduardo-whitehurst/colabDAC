@@ -17,13 +17,13 @@ public class AdicionarServico implements Logica{
         String nome = req.getParameter("nome");
         String descricao = req.getParameter("descricao");
         String valor = req.getParameter("valor");
-        String idFuncionario = req.getParameter("idFuncionario");
+        String id_funcionario = req.getParameter("id_funcionario");
 
         Servico servico = new Servico();
         servico.setNome(nome);
         servico.setDescricao(descricao);
         servico.setValor(valor);
-        servico.setIdFuncionario(Long.parseLong(idFuncionario));
+        servico.setIdFuncionario(Long.parseLong(id_funcionario));
 
         ServicoDao servicoDao;
 

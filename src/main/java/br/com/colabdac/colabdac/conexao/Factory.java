@@ -8,7 +8,7 @@ public class Factory {
     public Connection getConnection() throws ClassNotFoundException {
         try {
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/colabdac", "postgres", "postgres");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/colabdac", "postgres", "admin");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
