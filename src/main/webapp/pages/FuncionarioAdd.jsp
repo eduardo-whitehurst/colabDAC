@@ -13,7 +13,7 @@
 <body>
     <div>
     <h1>Funcionario <span>${param.nome}</span> cadastrado com sucesso!!!</h1>
-    <a href="Funcionario.html"><button>Voltar a página inicial</button></a>
+    <a href="funcionarios"><button>Voltar a página inicial</button></a>
 </div>
 </body>
 </html>

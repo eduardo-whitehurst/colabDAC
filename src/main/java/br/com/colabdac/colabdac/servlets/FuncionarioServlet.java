@@ -14,13 +14,11 @@ import java.io.IOException;
 public class FuncionarioServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Funcionario.html");
-        dispatcher.forward(request, response);
+
         response.getWriter().append("Served at: ").append(request.getContextPath());
         String action = request.getServletPath();
 
         if(action.equals("/listaFuncionarios")){
-            dispatcher = request.getRequestDispatcher("pages/pagina-funcionarios.jsp");
-            dispatcher.forward(request, response);
             funcionarios(request, response);
         } else if (action.equals("/editaFuncionarios")) {
             editar(request, response);
@@ -30,6 +28,8 @@ public class FuncionarioServlet extends HttpServlet {
             remover(request, response);
         }else if (action.equals("/cadastraFuncionarios")) {
             dispatcher = request.getRequestDispatcher("pages/Form-funcionario.html");
+            dispatcher.forward(request, response);
+        } else {
             dispatcher.forward(request, response);
         }
 

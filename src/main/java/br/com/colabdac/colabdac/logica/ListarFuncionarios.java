@@ -18,7 +18,7 @@ public class ListarFuncionarios implements Logica {
             List<Funcionario> funcionarios = funcionarioDao.listarTodos();
             req.setAttribute("funcionarios", funcionarios);
 
-            RequestDispatcher rd = req.getRequestDispatcher("pagina-funcionarios.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("pages/pagina-funcionarios.jsp");
             rd.forward(req, res);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

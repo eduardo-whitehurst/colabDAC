@@ -33,7 +33,7 @@ public class CriarFuncionario implements Logica {
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("/FuncionarioAdd.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/FuncionarioAdd.jsp");
         rd.forward(req, res);
     }
 }
