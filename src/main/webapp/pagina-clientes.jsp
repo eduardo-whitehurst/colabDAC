@@ -33,7 +33,7 @@
         <td><%=clientes.get(k).getCpf()%></td>
         <td>
             <a href="selectCliente?idCliente=<%=clientes.get(k).getId()%>"><button>Editar</button></a>
-
+            <a href="selectDelCliente?idCliente=<%=clientes.get(k).getId()%>"><button class="remover">Remover</button></a>
         </td>
     </tr>
     <%} %>

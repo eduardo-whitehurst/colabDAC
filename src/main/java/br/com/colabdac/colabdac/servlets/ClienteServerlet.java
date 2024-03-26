@@ -1,9 +1,6 @@
 package br.com.colabdac.colabdac.servlets;
 
-import br.com.colabdac.colabdac.logica.AdicionaCliente;
-import br.com.colabdac.colabdac.logica.BuscarPorId;
-import br.com.colabdac.colabdac.logica.BuscarTodosClientes;
-import br.com.colabdac.colabdac.logica.EditarCliente;
+import br.com.colabdac.colabdac.logica.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/cadastraCliente", "/listaClientes", "/editarCliente", "/selectCliente"})
+@WebServlet(urlPatterns = {"/cadastraCliente", "/listaClientes", "/editarCliente", "/selectCliente", "/selectDelCliente"})
 public class ClienteServerlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -26,9 +23,9 @@ public class ClienteServerlet extends HttpServlet {
             editar(request, response);
         } else if (action.equals("/selectCliente")) {
             selecionarPorId(request, response);
+        } else if (action.equals("/selectDelCliente")) {
+            remover(request, response);
         }
-
-
     }
 
     protected void clientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -78,4 +75,15 @@ public class ClienteServerlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
+    public void remover(HttpServletRequest request, HttpServletResponse response) {
+        DeletarCliente deletarCliente = new DeletarCliente();
+
+        try {
+            deletarCliente.executa(request, response);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
