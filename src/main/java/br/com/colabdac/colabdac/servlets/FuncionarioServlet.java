@@ -2,6 +2,8 @@ package br.com.colabdac.colabdac.servlets;
 
 import br.com.colabdac.colabdac.logica.*;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,11 +12,14 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/cadastraFuncionarios", "/listaFuncionarios", "/editaFuncionarios", "/selecionaFuncionarios", "/removeFuncionarios"})
 public class FuncionarioServlet extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Funcionario.html");
         response.getWriter().append("Served at: ").append(request.getContextPath());
         String action = request.getServletPath();
 
         if(action.equals("/listaFuncionarios")){
+            dispatcher = request.getRequestDispatcher("pages/pagina-funcionarios.jsp");
+            dispatcher.forward(request, response);
             funcionarios(request, response);
         } else if (action.equals("/editaFuncionarios")) {
             editar(request, response);
@@ -22,8 +27,12 @@ public class FuncionarioServlet extends HttpServlet {
             selecionarPorId(request, response);
         } else if (action.equals("/removeFuncionarios")) {
             remover(request, response);
+        }else if (action.equals("/cadastraFuncionarios")) {
+            dispatcher = request.getRequestDispatcher("pages/Form-funcionario.html");
+            dispatcher.forward(request, response);
         }
 
+        dispatcher.forward(request, response);
 
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -65,7 +74,7 @@ public class FuncionarioServlet extends HttpServlet {
     }
 
     public void selecionarPorId(HttpServletRequest request, HttpServletResponse response) {
-        BuscarPorId buscarPorId = new BuscarPorId();
+        BuscarPorIdFuncionario buscarPorId = new BuscarPorIdFuncionario();
 
         try {
             buscarPorId.executa(request, response);

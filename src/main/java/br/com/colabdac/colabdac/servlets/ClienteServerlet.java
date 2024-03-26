@@ -8,24 +8,42 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/cadastraCliente", "/listaClientes", "/editarCliente", "/selectCliente", "/selectDelCliente"})
 public class ClienteServerlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.getWriter().append("Served at: ").append(request.getContextPath());
-        String action = request.getServletPath();
+        HttpSession session = request.getSession();
+        String sessionToken = (String) session.getAttribute("sessionToken");
+        if (sessionToken != null) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Cliente.html");
 
-        if(action.equals("/listaClientes")){
-            clientes(request, response);
-        } else if (action.equals("/editarCliente")) {
-            editar(request, response);
-        } else if (action.equals("/selectCliente")) {
-            selecionarPorId(request, response);
-        } else if (action.equals("/selectDelCliente")) {
-            remover(request, response);
+            response.getWriter().append("Served at: ").append(request.getContextPath());
+            String action = request.getServletPath();
+
+            if(action.equals("/listaClientes")){
+                clientes(request, response);
+            } else if (action.equals("/editarCliente")) {
+                editar(request, response);
+            } else if (action.equals("/selectCliente")) {
+                selecionarPorId(request, response);
+            } else if (action.equals("/selectDelCliente")) {
+                remover(request, response);
+            } else if (action.equals("/cadastraCliente")) {
+                RequestDispatcher dispatcher1 = request.getRequestDispatcher("pages/adiciona-cliente.html");
+                dispatcher1.forward(request, response);
+            }
+
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/login.jsp");
+            dispatcher.forward(request, response);
         }
+
+
+
+
     }
 
     protected void clientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

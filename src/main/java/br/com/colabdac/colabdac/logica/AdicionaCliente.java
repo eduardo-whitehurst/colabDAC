@@ -28,7 +28,7 @@ public class AdicionaCliente implements Logica{
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("/cliente-adicionado.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/cliente-adicionado.jsp");
         rd.forward(req, res);
 
 

@@ -18,7 +18,7 @@ public class BuscarTodosClientes implements Logica{
             List<Cliente> clientes = clienteDao.all();
             req.setAttribute("clientes", clientes);
 
-            RequestDispatcher rd = req.getRequestDispatcher("pagina-clientes.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("pages/pagina-clientes.jsp");
             rd.forward(req, res);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
