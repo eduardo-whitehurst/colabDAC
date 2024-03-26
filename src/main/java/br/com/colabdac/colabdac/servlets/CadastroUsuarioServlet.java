@@ -23,7 +23,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
             dispatcher.forward(request, response);
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastro-usuario.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/cadastro-usuario.jsp");
             dispatcher.forward(request, response);
         }
     }

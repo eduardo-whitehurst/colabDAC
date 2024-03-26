@@ -83,6 +83,16 @@
         <url-pattern>/servicos</url-pattern>
     </servlet-mapping>
 
+    <!-- Definição do Servlet Serviços-->
+    <servlet>
+        <servlet-name>VendaServlet</servlet-name>
+        <servlet-class>br.com.colabdac.colabdac.servlets.VendaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VendaServlet</servlet-name>
+        <url-pattern>/vendas</url-pattern>
+    </servlet-mapping>
+
     <!-- Definição do Servlet atualizar-->
     <servlet>
         <servlet-name>atualizarUsuarioServlet</servlet-name>

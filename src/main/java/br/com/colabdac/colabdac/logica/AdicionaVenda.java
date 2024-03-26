@@ -27,7 +27,7 @@ public class AdicionaVenda implements Logica{
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("/venda-adicionada.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/venda-adicionada.jsp");
         rd.forward(req, res);
 
 

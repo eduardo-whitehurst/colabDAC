@@ -64,7 +64,6 @@
     </style>
 </head>
 <body>
-<jsp:include page="../components/header.jsp"/>
     <h1>Cadastrar Usuario</h1>
 
     <form action="cadastro" method="post">

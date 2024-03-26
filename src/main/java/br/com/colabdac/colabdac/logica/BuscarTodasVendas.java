@@ -1,6 +1,8 @@
 package br.com.colabdac.colabdac.logica;
 
+import br.com.colabdac.colabdac.dao.ClienteDao;
 import br.com.colabdac.colabdac.dao.VendaDao;
+import br.com.colabdac.colabdac.entities.Cliente;
 import br.com.colabdac.colabdac.entities.Venda;
 
 import javax.servlet.RequestDispatcher;
@@ -13,12 +15,17 @@ public class BuscarTodasVendas implements Logica{
         VendaDao vendaDao;
 
         try {
+            ClienteDao clienteDao = new ClienteDao();
+
+            List<Cliente> clientes = clienteDao.all();
+            req.setAttribute("clientes", clientes);
+
             vendaDao = new VendaDao();
 
             List<Venda> vendas = vendaDao.listarTodas();
             req.setAttribute("vendas", vendas);
 
-            RequestDispatcher rd = req.getRequestDispatcher("pagina-vendas.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("pages/pagina-vendas.jsp");
             rd.forward(req, res);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
