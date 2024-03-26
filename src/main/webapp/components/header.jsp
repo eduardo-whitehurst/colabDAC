@@ -29,12 +29,12 @@
 <div id="header">
     <h1>Auto-peças</h1>
     <ul>
-        <li><a href="clientes">Clientes</a></li>
+        <li><a href="../Cliente.html">Clientes</a></li>
         <li><a href="pecas">Peças</a></li>
         <li><a href="vendas">Vendas</a></li>
         <li><a href="veiculos">Veiculos</a></li>
         <li><a href="servicos">Serviços</a></li>
-        <li><a href="funcionarios">Funcionarios</a></li>
+        <li><a href="../Funcionario.html">Funcionarios</a></li>
         <li><a href="usuario">Usuario</a></li>
     </ul>
 </div>

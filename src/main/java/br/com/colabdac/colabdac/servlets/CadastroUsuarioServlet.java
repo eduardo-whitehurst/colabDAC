@@ -1,4 +1,4 @@
-package br.com.colabdac.colabdac.servelets;
+package br.com.colabdac.colabdac.servlets;
 
 import br.com.colabdac.colabdac.controllers.UsuarioController;
 

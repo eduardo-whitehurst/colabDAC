@@ -1,4 +1,4 @@
-package br.com.colabdac.colabdac.servlet;
+package br.com.colabdac.colabdac.servlets;
 
 import br.com.colabdac.colabdac.logica.*;
 

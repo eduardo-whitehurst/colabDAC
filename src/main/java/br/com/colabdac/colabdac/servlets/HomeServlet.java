@@ -1,4 +1,4 @@
-package br.com.colabdac.colabdac.servelets;
+package br.com.colabdac.colabdac.servlets;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
