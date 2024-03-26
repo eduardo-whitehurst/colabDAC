@@ -41,13 +41,10 @@ public class ServicoServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
 
-
-
-
     }
 
     protected void servicos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BuscarTodosClientes buscarTodos = new BuscarTodosClientes();
+        BuscarTodosServicos buscarTodos = new BuscarTodosServicos();
 
         try {
             buscarTodos.executa(request, response);
@@ -60,45 +57,45 @@ public class ServicoServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String action = request.getServletPath();
 
-        if(action.equals("/cadastraCliente")) {
+        if(action.equals("/cadastraServicos")) {
             cadastrar(request, response);
         }
     }
 
     public void editar(HttpServletRequest request, HttpServletResponse response) {
-        EditarCliente editarCliente = new EditarCliente();
+        EditarServico editarServico = new EditarServico();
 
         try {
-            editarCliente.executa(request, response);
+            editarServico.executa(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void selecionarPorId(HttpServletRequest request, HttpServletResponse response) {
-        BuscarPorId buscarPorId = new BuscarPorId();
+        BuscarPorIdServico buscarPorIdServico = new BuscarPorIdServico();
 
         try {
-            buscarPorId.executa(request, response);
+            buscarPorIdServico.executa(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) {
-        AdicionaCliente addCliente = new AdicionaCliente();
+        AdicionarServico addServico = new AdicionarServico();
         try {
-            addCliente.executa(request, response);
+            addServico.executa(request, response);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     public void remover(HttpServletRequest request, HttpServletResponse response) {
-        DeletarCliente deletarCliente = new DeletarCliente();
+        DeletarServico deletarServico = new DeletarServico();
 
         try {
-            deletarCliente.executa(request, response);
+            deletarServico.executa(request, response);
         } catch(Exception e) {
             e.printStackTrace();
         }
