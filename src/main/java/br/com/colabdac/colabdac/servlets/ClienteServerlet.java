@@ -19,7 +19,6 @@ public class ClienteServerlet extends HttpServlet {
         String sessionToken = (String) session.getAttribute("sessionToken");
         if (sessionToken != null) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Cliente.html");
-
             response.getWriter().append("Served at: ").append(request.getContextPath());
             String action = request.getServletPath();
 
@@ -32,9 +31,13 @@ public class ClienteServerlet extends HttpServlet {
             } else if (action.equals("/selectDelCliente")) {
                 remover(request, response);
             } else if (action.equals("/cadastraCliente")) {
-                RequestDispatcher dispatcher1 = request.getRequestDispatcher("pages/adiciona-cliente.html");
-                dispatcher1.forward(request, response);
+                dispatcher = request.getRequestDispatcher("pages/adiciona-cliente.html");
+                dispatcher.forward(request, response);
+            } else {
+
+                dispatcher.forward(request, response);
             }
+
 
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("pages/login.jsp");

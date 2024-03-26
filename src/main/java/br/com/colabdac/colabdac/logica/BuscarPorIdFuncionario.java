@@ -22,7 +22,7 @@ public class BuscarPorIdFuncionario implements Logica {
         req.setAttribute("funcao", funcionario.getFuncao());
         req.setAttribute("cpf", funcionario.getCpf());
 
-        RequestDispatcher rd = req.getRequestDispatcher("editarFuncionario.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/editarFuncionario.jsp");
         rd.forward(req, res);
     }
 }
