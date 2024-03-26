@@ -16,7 +16,6 @@ public class BuscarPorIdVeiculo implements Logica {
         VeiculoDao dao = new VeiculoDao();
 
         Veiculo veiculo = dao.buscarPorId(id);
-
         req.setAttribute("idVeiculo", veiculo.getId());
         req.setAttribute("modelo", veiculo.getModelo());
         req.setAttribute("marca", veiculo.getMarca());

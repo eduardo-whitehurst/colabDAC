@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="../components/header.jsp"/>
 <h1>Editar Veiculo</h1>
-<form name="formAddVeiculo" action="editaVeiculo">
+<form name="formAddVeiculo" action="editarVeiculo">
     <input type="text" name="id" readonly="readonly" value="<% out.print(request.getAttribute("idVeiculo"));%>"/><br />
     <input type="text" name="modelo" value="<% out.print(request.getAttribute("modelo"));%>"/><br />
     <input type="text" name="marca" value="<% out.print(request.getAttribute("marca"));%>"/><br />

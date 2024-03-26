@@ -28,7 +28,6 @@
     </tr>
     </thead>
     <tbody>
-    <% if (veiculos != null) { %>
     <% for(int k=0; k < veiculos.size(); k++){ %>
     <tr>
         <td><%=veiculos.get(k).getId()%></td>
@@ -40,10 +39,6 @@
             <a href="selectDelVeiculo?idVeiculo=<%=veiculos.get(k).getId()%>"><button class="remover">Remover</button></a>
         </td>
     </tr>
-    <% } %>
-    <% } else { %>
-    <!-- Handle the null case, perhaps by showing a message -->
-    <tr><td colspan="2">No vehicles available</td></tr>
     <% } %>
     </tbody>
 </table>

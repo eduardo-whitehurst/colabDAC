@@ -37,16 +37,10 @@ public class ClienteServerlet extends HttpServlet {
 
                 dispatcher.forward(request, response);
             }
-
-
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("pages/login.jsp");
             dispatcher.forward(request, response);
         }
-
-
-
-
     }
 
     protected void clientes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

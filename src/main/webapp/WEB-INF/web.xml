@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
   
-    <!-- Definição do Servlet -->
+    <!-- Definição do Servlet Login-->
     <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.LoginServlet</servlet-class>
@@ -14,6 +14,7 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <!-- Definição do Servlet Funcionario-->
     <servlet>
         <servlet-name>FuncionarioServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.FuncionarioServlet</servlet-class>
@@ -22,7 +23,7 @@
         <servlet-name>FuncionarioServlet</servlet-name>
         <url-pattern>/funcionarios</url-pattern>
     </servlet-mapping>
-
+    <!-- Definição do Servlet Cliente-->
     <servlet>
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.ClienteServerlet</servlet-class>
@@ -32,7 +33,7 @@
         <url-pattern>/clientes</url-pattern>
     </servlet-mapping>
 
-    <!-- Definição do Servlet -->
+    <!-- Definição do Servlet Cadastro-->
     <servlet>
         <servlet-name>cadastroUsuarioServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.CadastroUsuarioServlet</servlet-class>
@@ -42,7 +43,7 @@
         <url-pattern>/cadastro</url-pattern>
     </servlet-mapping>
 
-    <!-- Definição do Servlet -->
+    <!-- Definição do Servlet home-->
     <servlet>
         <servlet-name>homeServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.HomeServlet</servlet-class>
@@ -52,17 +53,17 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
-    <!-- Definição do Servlet -->
+    <!-- Definição do Servlet Veiculo-->
     <servlet>
-        <servlet-name>veiculoServlet</servlet-name>
+        <servlet-name>VeiculoServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.VeiculoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>veiculoServlet</servlet-name>
+        <servlet-name>VeiculoServlet</servlet-name>
         <url-pattern>/veiculos</url-pattern>
     </servlet-mapping>
 
-    <!-- Definição do Servlet -->
+    <!-- Definição do Servlet atualizar-->
     <servlet>
         <servlet-name>atualizarUsuarioServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.AtualizarUsuarioServlet</servlet-class>
@@ -71,7 +72,7 @@
         <servlet-name>atualizarUsuarioServlet</servlet-name>
         <url-pattern>/atualizar</url-pattern>
     </servlet-mapping>
-
+    <!-- Definição do Servlet Controlador-->
     <servlet>
         <servlet-name>controlador</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.ControllerServlet</servlet-class>

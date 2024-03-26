@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public class BuscarTodosVeiculos implements Logica{
-    @Override
     public void executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         VeiculoDao veiculoDao;
 

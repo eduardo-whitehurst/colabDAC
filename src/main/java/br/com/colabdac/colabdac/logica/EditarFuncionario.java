@@ -30,7 +30,6 @@ public class EditarFuncionario implements Logica {
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("pages/listaFuncionarios");
-        rd.forward(req, res);
+        res.sendRedirect("listaFuncionarios");
     }
 }

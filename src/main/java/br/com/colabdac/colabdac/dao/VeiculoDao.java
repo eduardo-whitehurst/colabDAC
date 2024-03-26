@@ -34,21 +34,24 @@ public class VeiculoDao {
         String sql = "SELECT * FROM veiculo WHERE id=?";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+
             stmt.setLong(1, id);
+
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) {
-                Veiculo veiculo = new Veiculo();
+            Veiculo veiculo = new Veiculo();
+
+            while (rs.next()) {
                 veiculo.setId(rs.getLong("id"));
                 veiculo.setModelo(rs.getString("modelo"));
                 veiculo.setMarca(rs.getString("marca"));
                 veiculo.setAno(rs.getInt("ano"));
-                return veiculo;
             }
+
+            return veiculo;
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao buscar veículo por ID.", e);
+            throw new RuntimeException(e);
         }
-        return null;
     }
 
     public List<Veiculo> listarTodos() {
@@ -76,14 +79,16 @@ public class VeiculoDao {
     public void alterar(Veiculo veiculo) {
         String sql = "UPDATE veiculo SET modelo=?, marca=?, ano=? WHERE id=?";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try  {
+            PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, veiculo.getModelo());
             stmt.setString(2, veiculo.getMarca());
             stmt.setInt(3, veiculo.getAno());
             stmt.setLong(4, veiculo.getId());
-            stmt.executeUpdate();
+            stmt.execute();
+            stmt.close();
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao alterar veículo.", e);
+            throw new RuntimeException(e);
         }
     }
 

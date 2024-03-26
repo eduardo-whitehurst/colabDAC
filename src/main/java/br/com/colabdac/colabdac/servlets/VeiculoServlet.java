@@ -8,28 +8,36 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/cadastraVeiculo", "/listaVeiculos", "/editarVeiculo", "/selectVeiculo", "/selectDelVeiculo"})
 public class VeiculoServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Veiculo.html");
-        response.getWriter().append("Served at: ").append(request.getContextPath());
-        String action = request.getServletPath();
+        HttpSession session = request.getSession();
+        String sessionToken = (String) session.getAttribute("sessionToken");
+        if (sessionToken != null) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Veiculo.html");
+            response.getWriter().append("Served at: ").append(request.getContextPath());
+            String action = request.getServletPath();
 
-        if(action.equals("/listaVeiculos")){
-            veiculos(request, response);
-        } else if (action.equals("/editarVeiculos")) {
-            editar(request, response);
-        } else if (action.equals("/selectVeiculos")) {
-            selecionarPorId(request, response);
-        } else if (action.equals("/selectDelVeiculo")) {
-            remover(request, response);
-        } else if (action.equals("/cadastraVeiculo")) {
-            dispatcher = request.getRequestDispatcher("pages/cadastro-veiculo.jsp");
-            dispatcher.forward(request, response);
-        }else  {
+            if(action.equals("/listaVeiculos")){
+                veiculos(request, response);
+            } else if (action.equals("/editarVeiculo")) {
+                editar(request, response);
+            } else if (action.equals("/selectVeiculo")) {
+                selecionarPorId(request, response);
+            } else if (action.equals("/selectDelVeiculo")) {
+                remover(request, response);
+            } else if (action.equals("/cadastraVeiculo")) {
+                dispatcher = request.getRequestDispatcher("pages/cadastro-veiculo.jsp");
+                dispatcher.forward(request, response);
+            }else  {
+                dispatcher.forward(request, response);
+            }
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/login.jsp");
             dispatcher.forward(request, response);
         }
     }
