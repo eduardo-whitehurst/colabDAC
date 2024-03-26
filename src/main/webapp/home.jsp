@@ -11,6 +11,7 @@
     <title>Home</title>
 </head>
 <body>
+    <jsp:include page="components/header.jsp"/>
     <h1>Home</h1>
 </body>
 </html>
