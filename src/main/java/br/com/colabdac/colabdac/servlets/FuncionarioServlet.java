@@ -14,6 +14,7 @@ import java.io.IOException;
 public class FuncionarioServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Funcionario.html");
+        dispatcher.forward(request, response);
         response.getWriter().append("Served at: ").append(request.getContextPath());
         String action = request.getServletPath();
 
@@ -31,8 +32,6 @@ public class FuncionarioServlet extends HttpServlet {
             dispatcher = request.getRequestDispatcher("pages/Form-funcionario.html");
             dispatcher.forward(request, response);
         }
-
-        dispatcher.forward(request, response);
 
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -4,6 +4,7 @@ import br.com.colabdac.colabdac.dao.FuncionarioDao;
 import br.com.colabdac.colabdac.entities.Funcionario;
 import br.com.colabdac.colabdac.logica.Logica;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +30,7 @@ public class EditarFuncionario implements Logica {
             e.printStackTrace();
         }
 
-        res.sendRedirect("listaFuncionarios");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/listaFuncionarios");
+        rd.forward(req, res);
     }
 }

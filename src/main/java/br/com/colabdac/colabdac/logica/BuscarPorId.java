@@ -22,7 +22,7 @@ public class BuscarPorId implements Logica {
         req.setAttribute("nome", cliente.getNome());
         req.setAttribute("cpf", cliente.getCpf());
 
-        RequestDispatcher rd = req.getRequestDispatcher("editar.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/editar.jsp");
         rd.forward(req, res);
     }
 }
