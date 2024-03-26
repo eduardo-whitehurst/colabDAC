@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 public class AdicionaCliente implements Logica{
     @Override
     public void executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        System.out.println("Executando");
-
         String nome = req.getParameter("nome");
         String cpf = req.getParameter("cpf");
 

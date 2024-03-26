@@ -18,7 +18,7 @@ public class BuscarTodasPecas implements Logica{
             List<Peca> pecas = pecaDao.listarTodos();
             req.setAttribute("pecas", pecas);
 
-            RequestDispatcher rd = req.getRequestDispatcher("pagina-pecas.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("pages/pagina-pecas.jsp");
             rd.forward(req, res);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

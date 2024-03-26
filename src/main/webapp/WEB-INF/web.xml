@@ -63,6 +63,16 @@
         <url-pattern>/veiculos</url-pattern>
     </servlet-mapping>
 
+    <!-- Definição do Servlet Peças-->
+    <servlet>
+        <servlet-name>PecaServlet</servlet-name>
+        <servlet-class>br.com.colabdac.colabdac.servlets.PecaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PecaServlet</servlet-name>
+        <url-pattern>/pecas</url-pattern>
+    </servlet-mapping>
+
     <!-- Definição do Servlet atualizar-->
     <servlet>
         <servlet-name>atualizarUsuarioServlet</servlet-name>

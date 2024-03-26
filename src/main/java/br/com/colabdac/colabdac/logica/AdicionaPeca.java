@@ -10,13 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 public class AdicionaPeca implements Logica{
     @Override
     public void executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-
         String nome = req.getParameter("nome");
         String valor = req.getParameter("valor");
 
         Peca peca = new Peca();
         peca.setNome(nome);
-        peca.setValor(Double.parseDouble(valor));
+        peca.setValor(valor);
 
         PecaDao dao;
 
@@ -27,7 +26,7 @@ public class AdicionaPeca implements Logica{
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("/peca-adicionada.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/peca-adicionada.jsp");
         rd.forward(req, res);
 
 

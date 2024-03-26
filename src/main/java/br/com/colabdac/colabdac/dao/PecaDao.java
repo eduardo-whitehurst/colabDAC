@@ -20,10 +20,12 @@ public class PecaDao {
     public void inserirPeca(Peca peca) {
         String sql = "INSERT INTO peca (nome, valor) VALUES (?, ?)";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try  {
+            PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, peca.getNome());
-            stmt.setDouble(2, peca.getValor());
-            stmt.executeUpdate();
+            stmt.setString(2, peca.getValor());
+            stmt.execute();
+            stmt.close();
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao inserir peça.", e);
         }
@@ -40,7 +42,7 @@ public class PecaDao {
                 Peca peca = new Peca();
                 peca.setId(rs.getLong("id"));
                 peca.setNome(rs.getString("nome"));
-                peca.setValor(rs.getDouble("valor"));
+                peca.setValor(rs.getString("valor"));
                 return peca;
             }
         } catch (SQLException e) {
@@ -60,7 +62,7 @@ public class PecaDao {
                 Peca peca = new Peca();
                 peca.setId(rs.getLong("id"));
                 peca.setNome(rs.getString("nome"));
-                peca.setValor(rs.getDouble("valor"));
+                peca.setValor(rs.getString("valor"));
                 pecas.add(peca);
             }
 
@@ -75,7 +77,7 @@ public class PecaDao {
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, peca.getNome());
-            stmt.setDouble(2, peca.getValor());
+            stmt.setString(2, peca.getValor());
             stmt.setLong(3, peca.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {

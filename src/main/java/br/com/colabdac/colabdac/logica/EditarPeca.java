@@ -18,7 +18,7 @@ public class EditarPeca implements Logica {
         Peca peca = new Peca();
         peca.setId(Long.parseLong(idPeca));
         peca.setNome(nome);
-        peca.setValor(Double.parseDouble(valor));
+        peca.setValor(valor);
 
         PecaDao dao;
         try {

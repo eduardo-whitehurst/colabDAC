@@ -8,23 +8,38 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/cadastraPeca", "/listaPecas", "/editaPeca", "/selecionaPeca", "/removePeca"})
 public class PecaServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        response.getWriter().append("Served at: ").append(request.getContextPath());
-        String action = request.getServletPath();
+        HttpSession session = request.getSession();
+        String sessionToken = (String) session.getAttribute("sessionToken");
+        if (sessionToken != null) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Peca.html");
+            response.getWriter().append("Served at: ").append(request.getContextPath());
+            String action = request.getServletPath();
 
-        if(action.equals("/listaPecas")){
-            pecas(request, response);
-        } else if (action.equals("/editaPeca")) {
-            editarPecas(request, response);
-        } else if (action.equals("/selecionaPeca")) {
-            selecionarPorId(request, response);
-        } else if (action.equals("/removePeca")) {
-            remover(request, response);
+            if(action.equals("/listaPecas")){
+                pecas(request, response);
+            } else if (action.equals("/editaPeca")) {
+                editarPecas(request, response);
+            } else if (action.equals("/selecionaPeca")) {
+                selecionarPorId(request, response);
+            } else if (action.equals("/removePeca")) {
+                remover(request, response);
+            } else if (action.equals("/cadastraPeca")) {
+                dispatcher = request.getRequestDispatcher("pages/adiciona-peca.html");
+                dispatcher.forward(request, response);
+            } else {
+
+                dispatcher.forward(request, response);
+            }
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/login.jsp");
+            dispatcher.forward(request, response);
         }
     }
 

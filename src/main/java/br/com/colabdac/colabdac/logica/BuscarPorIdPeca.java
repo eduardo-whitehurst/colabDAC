@@ -22,7 +22,7 @@ public class BuscarPorIdPeca implements Logica {
         req.setAttribute("nome", peca.getNome());
         req.setAttribute("valor", peca.getValor());
 
-        RequestDispatcher rd = req.getRequestDispatcher("editarPeca.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/editarPeca.jsp");
         rd.forward(req, res);
     }
 }
