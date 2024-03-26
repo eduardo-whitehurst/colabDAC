@@ -22,6 +22,7 @@
     <tr>
         <th>Id</th>
         <th>Nome</th>
+        <th>Função</th>
         <th>Cpf</th>
     </tr>
     </thead>
@@ -34,7 +35,7 @@
         <td><%=funcionarios.get(k).getCpf()%></td>
         <td>
             <a href="selecionaFuncionarios?idFuncionario=<%=funcionarios.get(k).getId()%>"><button>Editar</button></a>
-
+            <a href="removeFuncionarios?idFuncionario=<%=funcionarios.get(k).getId()%>"><button>Remover</button></a>
         </td>
     </tr>
     <%} %>

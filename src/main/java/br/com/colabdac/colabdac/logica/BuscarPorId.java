@@ -17,8 +17,9 @@ public class BuscarPorId implements Logica {
         FuncionarioDao dao = new FuncionarioDao();
         Funcionario funcionario = dao.buscarPorId(id);
 
-        req.setAttribute("idCliente", funcionario.getId());
+        req.setAttribute("idFuncionario", funcionario.getId());
         req.setAttribute("nome", funcionario.getNome());
+        req.setAttribute("funcao", funcionario.getFuncao());
         req.setAttribute("cpf", funcionario.getCpf());
 
         RequestDispatcher rd = req.getRequestDispatcher("editarFuncionario.jsp");

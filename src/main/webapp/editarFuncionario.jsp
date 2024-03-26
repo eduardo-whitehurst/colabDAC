@@ -11,7 +11,7 @@
     <title>Editar Funcionario</title>
 </head>
 <body>
-<h1>Editar Cliente</h1>
+<h1>Editar Funcionario</h1>
 <form name="formAddFuncionario" action="editaFuncionarios">
     <input type="text" name="id" readonly="readonly" value="<% out.print(request.getAttribute("idFuncionario"));%>"/><br />
     <input type="text" name="nome" value="<% out.print(request.getAttribute("nome"));%>"/><br />

@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 public class EditarFuncionario implements Logica {
     @Override
     public void executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        String idCliente = req.getParameter("id");
+        String idFuncionario = req.getParameter("id");
         String nome = req.getParameter("nome");
         String cpf = req.getParameter("cpf");
         String funcao = req.getParameter("funcao");
 
         Funcionario funcionario = new Funcionario();
-        funcionario.setId(Long.parseLong(idCliente));
+        funcionario.setId(Long.parseLong(idFuncionario));
         funcionario.setNome(nome);
         funcionario.setCpf(cpf);
         funcionario.setFuncao(funcao);
