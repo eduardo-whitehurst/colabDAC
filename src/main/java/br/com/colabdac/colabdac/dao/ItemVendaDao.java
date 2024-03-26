@@ -54,6 +54,15 @@ public class ItemVendaDao {
         }
     }
 
-    // Outros métodos podem incluir buscar por ID, listar todos, alterar e remover itens de venda
+    public void removerItemVenda(Long id) {
+        String sql = "DELETE FROM item_venda WHERE id=?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao remover item de venda.", e);
+        }
+    }
 }
 
