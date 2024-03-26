@@ -22,7 +22,7 @@ public class BuscarTodosServicos implements Logica{
             List<Servico> servicos = servicoDao.listarTodos();
             req.setAttribute("servicos", servicos);
 
-            RequestDispatcher rd = req.getRequestDispatcher("pages/pagina-servicos.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("pages/pagina-servico.jsp");
             rd.forward(req, res);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

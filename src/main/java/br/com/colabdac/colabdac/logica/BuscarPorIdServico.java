@@ -4,6 +4,7 @@ import br.com.colabdac.colabdac.dao.ClienteDao;
 import br.com.colabdac.colabdac.dao.ServicoDao;
 import br.com.colabdac.colabdac.entities.Cliente;
 import br.com.colabdac.colabdac.entities.Servico;
+import br.com.colabdac.colabdac.entities.Veiculo;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
@@ -12,18 +13,19 @@ import java.util.List;
 
 public class BuscarPorIdServico implements Logica{
     public void executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        ServicoDao servicoDao;
+        String idServico = req.getParameter("idServico");
+        Long id = Long.parseLong(idServico);
 
-        try {
-            servicoDao = new ServicoDao();
+        ServicoDao dao = new ServicoDao();
 
-            List<Servico> servicos = servicoDao.listarTodos();
-            req.setAttribute("servicos", servicos);
+        Servico servico = dao.buscarPorId(id);
+        req.setAttribute("idServico", servico.getId());
+        req.setAttribute("nome", servico.getNome());
+        req.setAttribute("descricao", servico.getDescricao());
+        req.setAttribute("valor", servico.getValor());
+        req.setAttribute("idFuncionario", servico.getIdFuncionario());
 
-            RequestDispatcher rd = req.getRequestDispatcher("pages/pagina-servicos.jsp");
-            rd.forward(req, res);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        RequestDispatcher rd = req.getRequestDispatcher("pages/editarServico.jsp");
+        rd.forward(req, res);
     }
 }

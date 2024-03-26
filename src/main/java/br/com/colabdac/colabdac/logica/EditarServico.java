@@ -23,7 +23,7 @@ public class EditarServico implements Logica {
         servico.setId(Long.parseLong(idServico));
         servico.setNome(nome);
         servico.setDescricao(descricao);
-        servico.setValor(Double.parseDouble(valor));
+        servico.setValor(valor);
         servico.setIdFuncionario(Long.parseLong(idFuncionario));
 
         ServicoDao dao;
@@ -34,7 +34,7 @@ public class EditarServico implements Logica {
             e.printStackTrace();
         }
 
-        res.sendRedirect("listaClientes");
+        res.sendRedirect("listaServico");
     }
 
 }

@@ -23,7 +23,7 @@ public class ServicoDao {
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, servico.getNome());
             stmt.setString(2, servico.getDescricao());
-            stmt.setDouble(3, servico.getValor());
+            stmt.setString(3, servico.getValor());
             stmt.setLong(4, servico.getIdFuncionario());
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -43,7 +43,7 @@ public class ServicoDao {
                 servico.setId(rs.getLong("id"));
                 servico.setNome(rs.getString("nome"));
                 servico.setDescricao(rs.getString("descricao"));
-                servico.setValor(rs.getDouble("valor"));
+                servico.setValor(rs.getString("valor"));
                 servico.setIdFuncionario(rs.getLong("idfuncionario"));
                 return servico;
             }
@@ -56,19 +56,22 @@ public class ServicoDao {
     public List<Servico> listarTodos() {
         String sql = "SELECT * FROM servico";
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+        try {
             List<Servico> servicos = new ArrayList<>();
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Servico servico = new Servico();
                 servico.setId(rs.getLong("id"));
                 servico.setNome(rs.getString("nome"));
                 servico.setDescricao(rs.getString("descricao"));
-                servico.setValor(rs.getDouble("valor"));
+                servico.setValor(rs.getString("valor"));
                 servico.setIdFuncionario(rs.getLong("idfuncionario"));
                 servicos.add(servico);
             }
+            rs.close();
+            stmt.close();
 
             return servicos;
         } catch (SQLException e) {
@@ -82,7 +85,7 @@ public class ServicoDao {
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, servico.getNome());
             stmt.setString(2, servico.getDescricao());
-            stmt.setDouble(3, servico.getValor());
+            stmt.setString(3, servico.getValor());
             stmt.setLong(4, servico.getIdFuncionario());
             stmt.setLong(5, servico.getId());
             stmt.executeUpdate();

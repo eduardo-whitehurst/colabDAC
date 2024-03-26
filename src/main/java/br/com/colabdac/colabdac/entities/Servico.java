@@ -1,10 +1,12 @@
 package br.com.colabdac.colabdac.entities;
 
+import java.sql.SQLException;
+
 public class Servico {
     private Long id;
     private String nome;
     private String descricao;
-    private double valor;
+    private String valor;
     private Long idFuncionario; // Chave estrangeira referenciando o funcionário associado a este serviço
 
     // Getters e Setters
@@ -32,11 +34,11 @@ public class Servico {
         this.descricao = descricao;
     }
 
-    public double getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 

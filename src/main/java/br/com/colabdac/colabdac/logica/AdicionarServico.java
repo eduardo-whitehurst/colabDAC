@@ -17,13 +17,13 @@ public class AdicionarServico implements Logica{
         String nome = req.getParameter("nome");
         String descricao = req.getParameter("descricao");
         String valor = req.getParameter("valor");
-        String idServico = req.getParameter("idServico");
+        String idFuncionario = req.getParameter("idFuncionario");
 
         Servico servico = new Servico();
         servico.setNome(nome);
         servico.setDescricao(descricao);
-        servico.setValor(Double.parseDouble(valor));
-        servico.setIdFuncionario(Long.parseLong(idServico));
+        servico.setValor(valor);
+        servico.setIdFuncionario(Long.parseLong(idFuncionario));
 
         ServicoDao servicoDao;
 
@@ -34,9 +34,8 @@ public class AdicionarServico implements Logica{
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("pages/Servico-adicionado.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/servico-adicionado.jsp");
         rd.forward(req, res);
-
 
     }
 

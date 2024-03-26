@@ -23,9 +23,9 @@ public class ServicoServlet extends HttpServlet {
             response.getWriter().append("Served at: ").append(request.getContextPath());
             String action = request.getServletPath();
 
-            if(action.equals("/listaServicos")){
+            if(action.equals("/listaServico")){
                 servicos(request, response);
-            } else if (action.equals("/editarServicos")) {
+            } else if (action.equals("/editarServico")) {
                 editar(request, response);
             } else if (action.equals("/selectServico")) {
                 selecionarPorId(request, response);
@@ -34,8 +34,10 @@ public class ServicoServlet extends HttpServlet {
             } else if (action.equals("/cadastraServico")) {
                 RequestDispatcher dispatcher1 = request.getRequestDispatcher("pages/adiciona-servico.html");
                 dispatcher1.forward(request, response);
-            }
+            } else {
 
+                dispatcher.forward(request, response);
+            }
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("pages/login.jsp");
             dispatcher.forward(request, response);
@@ -57,7 +59,7 @@ public class ServicoServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String action = request.getServletPath();
 
-        if(action.equals("/cadastraServicos")) {
+        if(action.equals("/cadastraServico")) {
             cadastrar(request, response);
         }
     }

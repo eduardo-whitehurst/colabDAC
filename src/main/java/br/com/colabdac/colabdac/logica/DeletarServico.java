@@ -17,7 +17,7 @@ public class DeletarServico implements Logica {
         ServicoDao dao = new ServicoDao();
         dao.remover(id);
 
-        res.sendRedirect("listaServicos");
+        res.sendRedirect("listaServico");
     }
 
 }
