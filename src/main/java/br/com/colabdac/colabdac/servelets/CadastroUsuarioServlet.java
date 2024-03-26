@@ -28,7 +28,7 @@ public class CadastroUsuarioServlet extends HttpServlet {
         }
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
         String confirmarSenha = request.getParameter("senha-confirmar");
@@ -41,8 +41,8 @@ public class CadastroUsuarioServlet extends HttpServlet {
             return;
         }
 
-        PrintWriter out = response.getWriter();
-        out.println("<html><body><b>Usuario criado com sucesso!</b></body></html>");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+        dispatcher.forward(request, response);
 
     }
 

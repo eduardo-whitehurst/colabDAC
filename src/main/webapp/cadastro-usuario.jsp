@@ -66,7 +66,7 @@
 <body>
     <h1>Cadastrar Usuario</h1>
 
-    <form action="usuario" method="post">
+    <form action="cadastro" method="post">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" class="input" required>
         <br>
