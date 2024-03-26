@@ -17,6 +17,7 @@
     <title>Página de Funcionários</title>
 </head>
 <body>
+<jsp:include page="../components/header.jsp"/>
 <table id="tabela">
     <thead>
     <tr>

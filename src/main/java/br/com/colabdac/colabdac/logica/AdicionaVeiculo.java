@@ -13,12 +13,12 @@ public class AdicionaVeiculo implements Logica{
     public void executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         String modelo = req.getParameter("modelo");
         String marca = req.getParameter("marca");
-        String ano = req.getParameter("ano");
+        int ano = Integer.parseInt(req.getParameter("ano"));
 
         Veiculo veiculo = new Veiculo();
         veiculo.setModelo(modelo);
         veiculo.setMarca(marca);
-        veiculo.setAno(Integer.parseInt(ano));
+        veiculo.setAno(ano);
 
         VeiculoDao veiculoDao;
 
@@ -29,7 +29,7 @@ public class AdicionaVeiculo implements Logica{
             e.printStackTrace();
         }
 
-        RequestDispatcher rd = req.getRequestDispatcher("/pagina-veiculos.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/paginaVeiculos.jsp");
         rd.forward(req, res);
     }
 

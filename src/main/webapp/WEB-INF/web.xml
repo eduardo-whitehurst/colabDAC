@@ -54,6 +54,16 @@
 
     <!-- Definição do Servlet -->
     <servlet>
+        <servlet-name>veiculoServlet</servlet-name>
+        <servlet-class>br.com.colabdac.colabdac.servlets.VeiculoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>veiculoServlet</servlet-name>
+        <url-pattern>/veiculos</url-pattern>
+    </servlet-mapping>
+
+    <!-- Definição do Servlet -->
+    <servlet>
         <servlet-name>atualizarUsuarioServlet</servlet-name>
         <servlet-class>br.com.colabdac.colabdac.servlets.AtualizarUsuarioServlet</servlet-class>
     </servlet>

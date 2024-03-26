@@ -28,7 +28,7 @@ public class CriarFuncionario implements Logica {
         try {
             dao = new FuncionarioDao();
             dao.inserirFuncionario(funcionario);
-        }catch (Exception e) {
+        }catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

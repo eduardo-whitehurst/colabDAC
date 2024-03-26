@@ -2,6 +2,7 @@ package br.com.colabdac.colabdac.servlets;
 
 import br.com.colabdac.colabdac.logica.*;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +14,7 @@ import java.io.IOException;
 public class VeiculoServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("pages/Veiculo.html");
         response.getWriter().append("Served at: ").append(request.getContextPath());
         String action = request.getServletPath();
 
@@ -24,6 +26,11 @@ public class VeiculoServlet extends HttpServlet {
             selecionarPorId(request, response);
         } else if (action.equals("/selectDelVeiculo")) {
             remover(request, response);
+        } else if (action.equals("/cadastraVeiculo")) {
+            dispatcher = request.getRequestDispatcher("pages/cadastro-veiculo.jsp");
+            dispatcher.forward(request, response);
+        }else  {
+            dispatcher.forward(request, response);
         }
     }
 
@@ -71,7 +78,7 @@ public class VeiculoServlet extends HttpServlet {
         try {
             addVeiculo.executa(request, response);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

@@ -22,7 +22,7 @@ public class BuscarPorIdVeiculo implements Logica {
         req.setAttribute("marca", veiculo.getMarca());
         req.setAttribute("ano", veiculo.getAno());
 
-        RequestDispatcher rd = req.getRequestDispatcher("editarVeiculo.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("pages/editarVeiculo.jsp");
         rd.forward(req, res);
     }
 }

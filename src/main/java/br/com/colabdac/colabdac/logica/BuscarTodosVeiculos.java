@@ -19,7 +19,7 @@ public class BuscarTodosVeiculos implements Logica{
             List<Veiculo> veiculos = veiculoDao.listarTodos();
             req.setAttribute("veiculos", veiculos);
 
-            RequestDispatcher rd = req.getRequestDispatcher("pagina-veiculos.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("pages/paginaVeiculos.jsp");
             rd.forward(req, res);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

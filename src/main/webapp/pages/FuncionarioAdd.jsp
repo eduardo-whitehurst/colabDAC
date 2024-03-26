@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="../components/header.jsp"/>
     <div>
     <h1>Funcionario <span>${param.nome}</span> cadastrado com sucesso!!!</h1>
     <a href="funcionarios"><button>Voltar a página inicial</button></a>

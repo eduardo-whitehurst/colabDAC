@@ -11,6 +11,7 @@
     <title>Editar Cliente</title>
 </head>
 <body>
+<jsp:include page="../components/header.jsp"/>
     <h1>Editar Cliente</h1>
     <form name="formAddPaciente" action="editarCliente">
         <input type="text" name="id" readonly="readonly" value="<% out.print(request.getAttribute("idCliente"));%>"/><br />

@@ -24,7 +24,7 @@ public class VeiculoDao {
             stmt.setString(1, veiculo.getModelo());
             stmt.setString(2, veiculo.getMarca());
             stmt.setInt(3, veiculo.getAno());
-            stmt.executeUpdate();
+            stmt.execute();
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao inserir veículo.", e);
         }

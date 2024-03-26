@@ -11,6 +11,7 @@
     <title>Cliente</title>
 </head>
 <body>
+<jsp:include page="../components/header.jsp"/>
     Cliente ${param.nome} cadastrado com sucesso!!
 </body>
 </html>
